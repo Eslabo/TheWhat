@@ -1,0 +1,32 @@
+body{
+	background-color: Beige;
+}
+
+a{
+	color: DarkGoldenRod;
+}
+
+table, th, td{
+	border: 1px solid black;
+	border-collapse: collapse;
+	/*color*/
+	background-color: white;
+}
+
+#schorsch {
+    margin-left: 5em;
+    margin-right: 2em;
+}
+
+#TablesOfOurChars {
+    margin-left: 2em;
+    margin-right: 2em;
+    border: 2px solid black;
+    border-collapse: collapse;
+    background-color: white;
+    /*we might change backgroundcolor depending on the situation of the familia*/
+}
+
+#content{
+    size: 80%;
+}
