@@ -1,32 +1,78 @@
-<html>
+<DOCTYPE!=html>
+    <html lang="en-EN">
 
-<head>
-    <title>The WHAT?!father</title>
-</head>
+    <head>
+        <title>The WHAT?!father</title>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta name="author" content="Jannes">
+        <meta name="author2" content="Muffin">
+        <meta name="description" content="A Game about the father of all">
+    </head>
 
-<body>
-    <h1>The epic story of <i>The WHAT?!father</i> and his family</h1>
-    <h3>Father</h3>
-    <table id="father">
-        <tr>
-            <th>Name</th>
-            <th>Intelligence</th>
-            <th>Power</th>
-            <th>Charisma</th>
-            <th>Stealth</th>
-        </tr>
-        <tr>
-            <th>Don Donut</th>
-            <th>12</th>
-            <th>11</th>
-            <th>10</th>
-            <th>11</th>
-        </tr>
-    </table>
+    <body>
+        <h1 align="center">The epic story of <i>The WHAT?!father</i> and his family</h1>
 
-    <img source="http://memestorage.com/_nw/24/40187290.png" alt=Meme style="width:128px;heigth:128px;align:center">
-    <script>
-        //ich bin muede
-    </script>
-</body>
-</html>
+        <object id="TablesOfOurChars" align="left">
+        <h3 align="center">Father</h3>
+        <table id="father">
+            <tr>
+                <th>Name</th>
+                <th>Intelligence</th>
+                <th>Power</th>
+                <th>Charisma</th>
+                <th>Stealth</th>
+                <th>OM</th>
+            </tr>
+            <tr>
+                <th>Don Donut</th>
+                <th>12</th>
+                <th>11</th>
+                <th>10</th>
+                <th>11</th>
+                <th>0</th>
+            </tr>
+        </table>
+        <i>OM = On Mission</i><br>
+        <i>If this box is red your familia is in trouble!</i>
+        </object>
+
+        <!--- on click on image go to game.html and start the game; moved all items into that area that are related to the game, added .css data for both files -->
+        <!--- wir könnten es auch alles hier drin machen, dann müssen wir einfach das Bild löschen beim onClick, wenn wir das benutzen, dann kann hier der Script+table raus-->
+        <!--- meine liebste Seite ist w3schools.com für html/css/js ;) -->
+        <object id="content" align="center">
+
+        <a href="game.html">
+            <img src="http://memecrunch.com/meme/BFKFA/say-what/image.gif" alt="Meme" style="width:1080px;heigth:1080px" href="game.html">
+        </a>
+        
+        </object>
+
+        <a href="https://acagamics.de/" target="_blank">
+            <img id="schorsch" src="https://acagamics.de/wp-content/uploads/2017/02/cropped-logoc-180x180.png" alt="Acagamics figure"
+                style="width:64px;heigth:64px" align="right">
+        </a>
+
+        <script>
+            //ich bin muede
+            var pointsFather = ["Don Donut", 12, 11, 10, 11];
+
+            //old script a bit new commented:
+            function changeContent(array, id, reihe) {
+                //array enthält die Werte die eingetragen werden sollen, ID die ID der Tabelle, die Reihe in der wir etwas eintragen
+                var table = document.getElementById(id).rows; //.rows zerlegt gleich in die Anzahl der Reihen <tr>
+                //console.log(table);
+                var tablecells = table[reihe].cells; //die erste (0.) Reihe ist für uns uninteressant, da es nur die Beschreibung ist
+                //console.log(tablecells);
+                //Achte auf passende Größe beim einfügen (cells vs array)
+                for (var i = 0; i < array.length; i++) {
+                    tablecells[i].innerHTML = array[i];
+                }
+                console.log(tablecells[3] + " " + array[3]);
+
+                //^ comments in order for us to check if stuff was done (correctly)
+            }
+        </script>
+    </body>
+
+    </html>
