@@ -40,7 +40,9 @@
         </object>
 
         <object id="content" align="center">
-            <p>We could write great text in here, like mission infos, stats and stuff. Plus we got optional space for meeeeemes!</p>
+            <i id="miscount" align="right">
+            <h3 id="missionheader" align="left"></h3>
+            <p id="missiondescription" align="left">We could write great text in here, like mission infos, stats and stuff. Plus we got optional space for meeeeemes!</p>
         </object>
 
         <a href="https://acagamics.de/" target="_blank">
@@ -70,9 +72,22 @@
                     tablecells[i].innerHTML = array[i];
                 }
                 console.log(tablecells[3] + " " + array[3]);
-
-                //^ comments in order for us to check if stuff was done (correctly)
             }
+            //^ comments in order for us to check if stuff was done (correctly)
+
+            var auftrag1 = ["Scavenger hunt against Baron Leztinsch", "Find and eat all scavengers that the Baron sat free. But be aware of their untasty taste!", 5, 25, 10, 30,"You successfully ate it all!", "You kould not find success.."]
+            // Auftrag: ["Name", "Beschreibung", ErforderlicheWerte Intelligence, Power, Charisma, Stealth, "Happeningpositiv", "Happeningnevativ"]
+
+            var missioncount = 0;
+            var success = false;
+
+            function newMission(mission){
+
+                if (missioncount > 0 && success==true){
+
+                }
+            }
+            
 
             //change html elements with .innerHTML
         </script>
