@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="author" content="Jannes">
+	</head>
+
+	<body>
+		<button type="button" align="center" style="width:90%;height:10%;" onclick="trinken()">☼</button>
+		<img id="blank" src="" align="center">
+		
+		<script>
+			var count = 0;
+			function stop(){
+				document.getElementById("blank").src = "";
+			}
+			function trinken(){
+				document.getElementById("blank").src = "http://www.gewoonvoorhem.nl/wp-content/uploads/2016/08/Drinken-shots-date.gif";
+				//window.setTimeout(stop(), 3000);
+				count ++;
+				if (count>2) {
+					document.getElementById("blank").src = "https://spiritualpunk.files.wordpress.com/2015/07/kotzendes-einhorn.jpg";
+					document.getElementById("blank").style = "width:1000px; heigth: 1000px;";
+				}
+			}
+		</script>
+	</body>
+
+</html>
