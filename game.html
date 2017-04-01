@@ -14,10 +14,11 @@
             <h1 align="center">The epic story of <i>The WHAT?!father</i> and his family</h1>
 
             <object id="TablesOfOurChars" align="left">
-        <h3 align="center">Father</h3>
-        <table id="father">
+        <h3 align="center">Familia</h3>
+        <table id="familia">
             <tr>
                 <th>Name</th>
+                <th>Rang</th>
                 <th>Intelligence</th>
                 <th>Power</th>
                 <th>Charisma</th>
@@ -31,6 +32,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
         </table>
         <i>OM = On Mission</i><br>
@@ -38,7 +40,9 @@
         </object>
 
             <object id="content" align="center">
-            <p>We could write great text in here, like mission infos, stats and stuff. Plus we got optional space for meeeeemes!</p>
+            <i id="miscount" align="right">
+            <h3 id="missionheader" align="left"></h3>
+            <p id="missiondescription" align="left">We could write great text in here, like mission infos, stats and stuff. Plus we got optional space for meeeeemes!</p>
         </object>
 
             <a href="https://acagamics.de/" target="_blank">
@@ -47,12 +51,13 @@
             </a>
 
 
-            <script>
-                //ich bin muede
-                var pointsFather = ["Don Donut", 12, 11, 10, 11];
-                //tester:
-                console.log(father)
-                changeContent(pointsFather, father, 1)
+        <script>
+            //ich bin muede
+            var pointsFather = ["Don Donut", "Pater", 12, 11, 10, 11];
+            
+            //tester:
+            console.log(familia)
+            changeContent(pointsFather, familia,1)
 
                 //old script a bit new commented:
                 function changeContent(array, id, reihe) {
@@ -75,6 +80,24 @@
                 function chooseName(forename, surename){
                     return forename[Math.floor(Math.random()*forename.length-1)]+" "+surename[Math.floor(Math.random()*surename.length-1)]
                 }
+                console.log(tablecells[3] + " " + array[3]);
+            }
+            //^ comments in order for us to check if stuff was done (correctly)
+
+            var auftrag1 = ["Scavenger hunt against Baron Leztinsch", "Find and eat all scavengers that the Baron sat free. But be aware of their untasty taste!", 5, 25, 10, 30,"You successfully ate it all!", "You kould not find success.."]
+            // Auftrag: ["Name", "Beschreibung", ErforderlicheWerte Intelligence, Power, Charisma, Stealth, "Happeningpositiv", "Happeningnevativ"]
+
+            var missioncount = 0;
+            var success = false;
+
+            function newMission(mission){
+
+                if (missioncount > 0 && success==true){
+
+                }
+            }
+            
+
             //change html elements with .innerHTML
             </script>
         </body>

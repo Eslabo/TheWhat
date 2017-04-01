@@ -1,5 +1,5 @@
 body{
-	background-color: Beige;
+	background-color: #FF9000;
 }
 
 a{
@@ -16,6 +16,9 @@ table, th, td{
 #schorsch {
     margin-left: 5em;
     margin-right: 2em;
+    border: 2px darkcyan;
+    border-style: dotted;
+    border-radius: 25px;
 }
 
 #TablesOfOurChars {
