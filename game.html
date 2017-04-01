@@ -25,33 +25,6 @@
                 <th>Stealth</th>
                 <th>OM</th>
             </tr>
-            <tr>
-                <th>Don Donut</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                <th>Right Hand</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                <th>General 1</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
         </table>
         <i>OM = On Mission</i><br>
         <i>If this box is red your familia is in trouble!</i>
@@ -71,17 +44,34 @@
 
             <script>
                 //ich bin muede
-                var name = "debug";
-                name = chooseName;
-                var pointsFather = ["Don Donut", "Pater", 12, 11, 13, 11];
-                var rightHand = [name, "right Hand", 10, 10, 9, 9];
-                var general1=["chooseName()","General 1",attributes(8),attributes(8),attributes(8),attributes(8)]
+                var pointsFather = ["Don Donut", "Pater", attributes(0), attributes(0), attributes(0), attributes(0)];
+                var rightHand = ["Rechte Hand", "right Hand", attributes(2), attributes(2), attributes(2), attributes(2)];
+                var general1 = ["General", "General 1", attributes(4), attributes(4), attributes(4), attributes(4)];
+
+                var persons = [["Don Donut", "Pater", attributes(0), attributes(0), attributes(0), attributes(0)], ["Rechte Hand", "right Hand", attributes(2), attributes(2), attributes(2), attributes(2)], ["General", "General 1", attributes(4), attributes(4), attributes(4), attributes(4)]]
+
+
+                var table = familia.rows;
+
+                //console.log(table)
+
+                //table[i].innerHTML = <tr><th></th></tr>
+
+                for (i = 0; i < persons.length; i++) {
+                    //table.push("<tr><th>persons[i[0]</th><th>persons[i[1]</th><th>persons[i[2]</th><th>persons[i[3]</th><th>persons[i[4]</th><th>persons[i[5]</th></tr>");
+                   document.getElementById("familia").innerHTML+="<tr><th>"+persons[i][0]+"</th><th>"+persons[i][1]+"</th><th>"+persons[i][2]+"</th><th>"+persons[i][3]+"</th><th>"+persons[i][4]+"</th><th>"+persons[i][5]+"</th></tr>";
+                    console.log(table)
+                }
+
+                
 
                 //tester:
-                console.log(familia)
-                changeContent(pointsFather, familia, 1)
-                changeContent(rightHand, familia, 2)
-                changeContent(general1,familia,3)
+                // console.log(familia)
+                //changeContent(pointsFather, familia, 1)
+                //changeContent(rightHand, familia, 2)
+                // changeContent(general1, familia, 3)
+
+
 
                 //old script a bit new commented:
                 function changeContent(array, id, reihe) {
@@ -103,19 +93,21 @@
                 console.log(tablecells[3] + " " + array[3]);
 
 
+
+                //wählt random einen Vor- und Nachnamen aus
                 var forename = ["Ben", "Jonas", "Leon", "Elias", "Finn", "Fynn", "Noah", "Paul", "Luis", "Louis", "Lukas", "Lucas", "Luca", "Luka", "Felix", "Maximilian", "Henry", "Henri", "Max", "Emil", "Moritz", "Jakob", "Jacob", "Niklas", "Niclas", "Tim", "Julian", "Oskar", "Oscar", "Anton", "Philip", "David", "Liam", "Alexander", "Theo", "Tom", "Mats", "Mads", "Jan"];
                 var surename = ["Miles", "Smith", "Snider", "Fisher", "Webster", "Meyer", "Waggon", "Baeker", "Shalz", "Hoffman", "Pauer", "Cook", "Judge", "Little", "Wolf", "Newman", "Black", "Brown", "Roman", "Hartman", "Kruger", "Wernes", "Longs", "Kruse", "Huber", "Mayer", "Walter", "King", "Fox", "Wright", "Peters", "Young", "Cock", "Roth", "Franks", "Beck", "Berger", "Winkler", "Treeman", "Simon", "Winter"];
                 function chooseName() {
-                    return (forename[(Math.random()*100)/3]+" "+surename[(Math.random()*100)/3]);
+                    return (forename[(Math.random() * 100) / 3] + " " + surename[(Math.random() * 100) / 3]);
                     //return name = (forename[0] + " " + surename[0]);
                 }
-                //wählt random einen Vor- und Nachnamen aus
 
-                function attributes (low){
-                   var att= Math.floor(Math.random()*11)-1;
-                   if (att<low){
-                       att=low;
-                   }
+                //errechnet zufällige attributeswerte (berechnet eine Obergrenze mit ein)
+                function attributes(high) {
+                    var att = Math.floor(Math.random() * 15) - (high);
+                    if (att < 0) {
+                        att = 0;
+                    }
                     return att;
                 }
 
