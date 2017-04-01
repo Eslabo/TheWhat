@@ -34,6 +34,24 @@
                 <th></th>
                 <th></th>
             </tr>
+            <tr>
+                <th>Right Hand</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>General 1</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
         </table>
         <i>OM = On Mission</i><br>
         <i>If this box is red your familia is in trouble!</i>
@@ -51,13 +69,19 @@
             </a>
 
 
-        <script>
-            //ich bin muede
-            var pointsFather = ["Don Donut", "Pater", 12, 11, 10, 11];
-            
-            //tester:
-            console.log(familia)
-            changeContent(pointsFather, familia,1)
+            <script>
+                //ich bin muede
+                var name = "debug";
+                name = chooseName;
+                var pointsFather = ["Don Donut", "Pater", 12, 11, 13, 11];
+                var rightHand = [name, "right Hand", 10, 10, 9, 9];
+                var general1=["chooseName()","General 1",attributes(8),attributes(8),attributes(8),attributes(8)]
+
+                //tester:
+                console.log(familia)
+                changeContent(pointsFather, familia, 1)
+                changeContent(rightHand, familia, 2)
+                changeContent(general1,familia,3)
 
                 //old script a bit new commented:
                 function changeContent(array, id, reihe) {
@@ -75,28 +99,41 @@
 
                     //^ comments in order for us to check if stuff was done (correctly)
                 }
-                var forename = ["Ben", "Jonas", "Leon", "Elias", "Finn", "Fynn", "Noah", "Paul", "Luis", "Louis", "Lukas", "Lucas", "Luca", "Luka", "Felix", "Maximilian", "Henry", "Henri", "Max", "Emil", "Moritz", "Jakob", "Jacob", "Niklas", "Niclas", "Tim", "Julian", "Oskar", "Oscar", "Anton", "Philip", "David", "Liam", "Alexander", "Theo", "Tom", "Mats", "Mads", "Jan"]
-                var surename = ["Miles","Smith","Snider","Fisher","Webster","Meyer","Waggon","Baeker","Shalz","Hoffman","Pauer","Cook","Judge","Little","Wolf","Newman","Black","Brown","Roman","Hartman","Kruger","Wernes","Longs","Kruse","Huber","Mayer","Walter","King","Fox","Wright","Peters","Young","Cock","Roth","Franks","Beck","Berger","Winkler","Treeman","Simon","Winter"]
-                function chooseName(forename, surename){
-                    return forename[Math.floor(Math.random()*forename.length-1)]+" "+surename[Math.floor(Math.random()*surename.length-1)]
-                }
+
                 console.log(tablecells[3] + " " + array[3]);
-            }
-            //^ comments in order for us to check if stuff was done (correctly)
 
-            var auftrag1 = ["Scavenger hunt against Baron Leztinsch", "Find and eat all scavengers that the Baron sat free. But be aware of their untasty taste!", 5, 25, 10, 30,"You successfully ate it all!", "You kould not find success.."]
-            // Auftrag: ["Name", "Beschreibung", ErforderlicheWerte Intelligence, Power, Charisma, Stealth, "Happeningpositiv", "Happeningnevativ"]
 
-            var missioncount = 0;
-            var success = false;
-
-            function newMission(mission){
-
-                if (missioncount > 0 && success==true){
-
+                var forename = ["Ben", "Jonas", "Leon", "Elias", "Finn", "Fynn", "Noah", "Paul", "Luis", "Louis", "Lukas", "Lucas", "Luca", "Luka", "Felix", "Maximilian", "Henry", "Henri", "Max", "Emil", "Moritz", "Jakob", "Jacob", "Niklas", "Niclas", "Tim", "Julian", "Oskar", "Oscar", "Anton", "Philip", "David", "Liam", "Alexander", "Theo", "Tom", "Mats", "Mads", "Jan"];
+                var surename = ["Miles", "Smith", "Snider", "Fisher", "Webster", "Meyer", "Waggon", "Baeker", "Shalz", "Hoffman", "Pauer", "Cook", "Judge", "Little", "Wolf", "Newman", "Black", "Brown", "Roman", "Hartman", "Kruger", "Wernes", "Longs", "Kruse", "Huber", "Mayer", "Walter", "King", "Fox", "Wright", "Peters", "Young", "Cock", "Roth", "Franks", "Beck", "Berger", "Winkler", "Treeman", "Simon", "Winter"];
+                function chooseName() {
+                    return (forename[(Math.random()*100)/3]+" "+surename[(Math.random()*100)/3]);
+                    //return name = (forename[0] + " " + surename[0]);
                 }
-            }
-            
+                //wählt random einen Vor- und Nachnamen aus
+
+                function attributes (low){
+                   var att= Math.floor(Math.random()*11)-1;
+                   if (att<low){
+                       att=low;
+                   }
+                    return att;
+                }
+
+                //^ comments in order for us to check if stuff was done (correctly)
+
+                var auftrag1 = ["Scavenger hunt against Baron Leztinsch", "Find and eat all scavengers that the Baron sat free. But be aware of their untasty taste!", 5, 25, 10, 30, "You successfully ate it all!", "You kould not find success.."]
+                // Auftrag: ["Name", "Beschreibung", ErforderlicheWerte Intelligence, Power, Charisma, Stealth, "Happeningpositiv", "Happeningnevativ"]
+
+                var missioncount = 0;
+                var success = false;
+
+                function newMission(mission) {
+
+                    if (missioncount > 0 && success == true) {
+
+                    }
+                }
+
 
             //change html elements with .innerHTML
             </script>
