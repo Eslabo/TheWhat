@@ -55,14 +55,11 @@
             //var rightHand = [chooseName(), "right Hand", 10, 10, 9, 9];
             //var general1 = [chooseName(), "General 1", attributes(8), attributes(8), attributes(8), attributes(8)]
 
-            var persons = [["Don Donut", "Pater", attributes(0), attributes(0), attributes(0), attributes(0)], ["Rechte Hand", "right Hand", attributes(2), attributes(2), attributes(2), attributes(2)], ["General", "General 1", attributes(4), attributes(4), attributes(4), attributes(4)]]
+            var persons = [["Don Donut", "Pater", attributes(0), attributes(0), attributes(0), attributes(0)], [chooseName(), "right Hand", attributes(2), attributes(2), attributes(2), attributes(2)], [chooseName(), "General ", attributes(4), attributes(4), attributes(4), attributes(4)]]
 
 
             var table = familia.rows;
 
-            //console.log(table)
-
-            //table[i].innerHTML = <tr><th></th></tr>
 
             for (i = 0; i < persons.length; i++) {
                 //table.push("<tr><th>persons[i[0]</th><th>persons[i[1]</th><th>persons[i[2]</th><th>persons[i[3]</th><th>persons[i[4]</th><th>persons[i[5]</th></tr>");
@@ -73,27 +70,7 @@
 
 
             //tester:
-            // console.log(familia)
-            //changeContent(pointsFather, familia, 1)
-            //changeContent(rightHand, familia, 2)
-            // changeContent(general1, familia, 3)
-
-
-
-            //old script a bit new commented:
-            function changeContent(array, id, reihe) {
-                //array enthält die Werte die eingetragen werden sollen, ID die ID der Tabelle, die Reihe in der wir etwas eintragen
-                console.log(id);
-                var table = id.rows; //.rows zerlegt gleich in die Anzahl der Reihen <tr>
-                //console.log(table);
-                var tablecells = table[reihe].cells; //die erste (0.) Reihe ist für uns uninteressant, da es nur die Beschreibung ist
-                //console.log(tablecells);
-                //Achte auf passende Größe beim einfügen (cells vs array)
-                for (var i = 0; i < array.length; i++) {
-                    tablecells[i].innerHTML = array[i];
-                }
-                console.log(tablecells[3] + " " + array[3]);
-            }
+            
             //old script a bit new commented:
             function changeContent(array, id, reihe) {
                 //array enthält die Werte die eingetragen werden sollen, ID die ID der Tabelle, die Reihe in der wir etwas eintragen
@@ -121,29 +98,12 @@
                 return att;
             }
 
-            /*function chooseName(){
-                var string = forename[Math.floor((Math.random() * 30))]
-                string += " "+ surename[Math.floor((Math.random() * 35))];
-                return string;
-            }*/
 
             //        function to make up a name
             function chooseName() {
-                //console.log(forename);
-                //string += ;
-                //console.log(string);
                 return forename[Math.floor((Math.random() * 30))] + " " + surename[Math.floor((Math.random() * 35))];
             }
 
-            function attributes(low) {
-                var att = Math.floor(Math.random() * 11) - 1;
-                if (att < low) {
-                    att = low;
-                }
-                return att;
-            }
-
-            //^ comments in order for us to check if stuff was done (correctly)
 
             function newMission(mission) {
 
