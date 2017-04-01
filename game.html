@@ -32,7 +32,7 @@
         </object>
 
         <object id="content" align="center">
-            <i id="miscount" align="right">
+            <i id="miscount" align="right"></i>
             <h3 id="missionheader" align="left"></h3>
             <p id="missiondescription" align="left">We could write great text in here, like mission infos, stats and stuff. Plus we got optional space for meeeeemes!</p>
         </object>
@@ -49,7 +49,7 @@
             var surename = ["Miles", "Smith", "Snider", "Fisher", "Webster", "Meyer", "Waggon", "Baeker", "Shalz", "Hoffman", "Pauer", "Cook", "Judge", "Little", "Wolf", "Newman", "Black", "Brown", "Roman", "Hartman", "Kruger", "Wernes", "Longs", "Kruse", "Huber", "Mayer", "Walter", "King", "Fox", "Wright", "Peters", "Young", "Cock", "Roth", "Franks", "Beck", "Berger", "Winkler", "Treeman", "Simon", "Winter"];
             // var pointsFather = ["Don Donut", "Pater", 12, 11, 13, 11];
             var auftrag1 = ["Scavenger hunt against Baron Leztinsch", "Find and eat all scavengers that the Baron sat free. But be aware of their untasty taste!", 5, 25, 10, 30, "You successfully ate it all!", "You kould not find success.."]
-            // Auftrag: ["Name", "Beschreibung", ErforderlicheWerte Intelligence, Power, Charisma, Stealth, "Happeningpositiv", "Happeningnevativ"]
+            // Auftrag: ["Name"0, "Beschreibung"1, ErforderlicheWerte Intelligence2, Power3, Charisma4, Stealth5, "Happeningpositiv"6, "Happeningnevativ"7]
             var missioncount = 0;
             var success = false;
             //var rightHand = [chooseName(), "right Hand", 10, 10, 9, 9];
@@ -70,7 +70,7 @@
                 console.log(table)
             }
 
-
+            missionToText(auftrag1); //init first mission
 
             //tester:
             // console.log(familia)
@@ -153,7 +153,17 @@
 
             }
 
-            //change html elements with .innerHTML
+            function missionToText(mission) {
+                //Lade mission ein und füge sie über der vorherigen an.
+                var i = 0;
+                document.getElementById("missionheader").innerHTML = mission[i];
+                i++;
+                var old = document.getElementById("missiondescription").innerHTML;
+                document.getElementById("missiondescription").innerHTML = mission[i] + "<br> You need Intelligence: " + mission[2] + ", Power: " + mission[3] + ", Charisma: " + mission[4] + ", Stealth: " + mission[5] + "<br><br>" + old;
+                i++;
+
+
+            }
         </script>
     </body>
 
