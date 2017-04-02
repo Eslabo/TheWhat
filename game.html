@@ -57,10 +57,17 @@
                 "Little", "Wolf", "Newman", "Black", "Brown", "Roman", "Hartman", "Kruger", "Wernes", "Longs", "Kruse", "Huber", "Mayer", "Walter", "King",
                 "Fox", "Wright", "Peters", "Young", "Cock", "Roth", "Franks", "Beck", "Berger", "Winkler", "Treeman", "Simon", "Winter"];
 
-            var auftrag1 = ["Scavenger hunt against Baron Leztinsch",
+
+            // Auftrag: ["Name"0, "Beschreibung"1, ErforderlicheWerte Intelligence2, Power3, Charisma4, Stealth5, "Happeningpositiv"6, "Happeningnevativ"7]
+            var scavengerHunt = ["Scavenger hunt against Baron Leztinsch",
                 "Find and eat all scavengers that the Baron sat free. But be aware of their untasty taste!", 5, 25, 10, 30,
                 "You successfully ate it all!", "You kould not find success.."]
-            // Auftrag: ["Name"0, "Beschreibung"1, ErforderlicheWerte Intelligence2, Power3, Charisma4, Stealth5, "Happeningpositiv"6, "Happeningnevativ"7]
+
+            var catchPeople=["Beware your Familia from Death","Your Familia is not big enough. You have to find new Members before the Enemy-Familia overtakes you.",20,5,20,10,
+            "You have find a few new friends!", "After your Underlings went out to find some new Members for your familia you never heard of any of them again..."]
+            
+
+
 
             var missioncount = 0;
             var success = false;
@@ -101,13 +108,13 @@
 
 
             for (i = 0; i < persons.length; i++) {
-                document.getElementById("familia").innerHTML += "<tr><th>" +(i+1)+"</th><th>"+ persons[i][0] + "</th><th>" + persons[i][1] + "</th><th>" + persons[i][2] + "</th><th>" 
-                + persons[i][3] + "</th><th>" + persons[i][4] + "</th><th>" + persons[i][5] + "</th></tr>";
+                document.getElementById("familia").innerHTML += "<tr><th>" + (i + 1) + "</th><th>" + persons[i][0] + "</th><th>" + persons[i][1] + "</th><th>" + persons[i][2] + "</th><th>"
+                    + persons[i][3] + "</th><th>" + persons[i][4] + "</th><th>" + persons[i][5] + "</th></tr>";
                 console.log(table)
             }
 
 
-            missionToText(auftrag1); //init first mission
+            missionToText(scavengerHunt); //init first mission
 
             //tester:
 
@@ -131,10 +138,27 @@
             }
 
 
-            function create(number,rank){
-                switch(rank){
-                    case "Noob":
-                    persons[persons.length]=
+            function create(number, rank) {
+                for (i = 1; i <= number; i++) {
+                    switch (rank) {
+                        case "Noob":
+                            persons[persons.length] = [chooseName(), "Noob", attributes(17), attributes(17), attributes(17), attributes(17)];
+                            break;
+                        case "Lowboobs":
+                            persons[persons.length] = [chooseName(), "Lowboobs", minimum(attributes(14), 1), minimum(attributes(14), 1), minimum(attributes(14), 1), minimum(attributes(14), 1)];
+                            break;
+                        case "Sergeant":
+                            persons[persons.length] = [chooseName(), "Sergeant", minimum(attributes(8), 5), minimum(attributes(8), 5), minimum(attributes(8), 5), minimum(attributes(8), 5)];
+                            break;
+                        case "Officer":
+                            persons[persons.length] = [chooseName(), "Officer", minimum(attributes(5), 10), minimum(attributes(5), 10), minimum(attributes(5), 10), minimum(attributes(5), 10)];
+                            break;
+                        case "Lawyer":
+                            persons[persons.length] = [chooseName(), "Lawyer ", minimum(attributes(4), 12), minimum(attributes(4), 12), minimum(attributes(3), 12), minimum(attributes(4), 12)];
+                            break;
+                        case "General":
+                            persons[persons.length] = [chooseName(), "General ", minimum(attributes(4), 12), minimum(attributes(4), 12), minimum(attributes(4), 12), minimum(attributes(4), 12)];
+                    }
                 }
             }
 
@@ -182,7 +206,9 @@
             }
             //Idee zum Leveln: Attribut was benötigt wurde geteilt durch 10
             function acceptMission(mission) {
-                document.getElementById("missiondescription").innerHTML = "Choose your mission members by inputing their numbers with a space in between e.g. '1 3 5' to take the Don, the General and your first Officer. <input type='text' id='missionmembers' value='1 2'><button onclick='startMission()'>GO!</button>" + "<br>" + oldtext + "<br>" + old;
+                document.getElementById("missiondescription").innerHTML = 
+                "Choose your mission members by inputing their numbers with a space in between e.g. '1 3 5' to take the Don, the General and your first Officer. <input type='text' id='missionmembers' value='1 2'><button onclick='startMission()'>GO!</button>" 
+                + "<br>" + oldtext + "<br>" + old;
             }
             function startMission() {
                 var mem = document.getElementById("missionmembers").value; //get missionmembers out of input box
