@@ -66,6 +66,7 @@
             var success = false;
             var oldtext = "";
             var old = "";
+            var activemission = [];
 
             var persons = [["Don Donut", "Pater", minimum(attributes(0), 17), minimum(attributes(0), 17), minimum(attributes(0), 17), minimum(attributes(0), 17)],
             [chooseName(), "right Hand", minimum(attributes(2), 15), minimum(attributes(2), 15), minimum(attributes(2), 15), minimum(attributes(2), 15)],
@@ -158,13 +159,14 @@
 
             function missionToText(mission) {
                 //Lade mission ein und füge sie über der vorherigen an.
+                activemission = mission;
                 var i = 0;
                 document.getElementById("missionheader").innerHTML = mission[i];
                 i++;
                 old = document.getElementById("missiondescription").innerHTML;
                 document.getElementById("missiondescription").innerHTML = mission[i] + "<br> You need Intelligence: " + mission[2] + ", Power: " + mission[3] + ", Charisma: " + mission[4] + ", Stealth: " + mission[5] + "<br>";
                 oldtext = document.getElementById("missiondescription").innerHTML;
-                document.getElementById("missiondescription").innerHTML = oldtext + "<button type='button' onclick=acceptMission()>Accept</button><br>" + old;
+                document.getElementById("missiondescription").innerHTML = oldtext + "<button type='button' onclick='acceptMission();activemission[status]=0'>Accept</button><br>" + old;
             }
             //Idee zum Leveln: Attribut was benötigt wurde geteilt durch 10
             function acceptMission(mission) {
@@ -173,14 +175,20 @@
             function startMission() {
                 var mem = document.getElementById("missionmembers").value; //get missionmembers out of input box
                 mem = mem.split(" ");
-                var memnames = [];
-
+                document.getElementById("missiondescription").innerHTML = "You started the mission with:";
                 for (var i = 0; i < mem.length; i++) {
-                    mem[i] = parseInt(mem[i]);
-                    memnames[i] = persons[mem[i]][0];
+                    mem[i] = parseInt(mem[i]) - 1;
+                    document.getElementById("missiondescription").innerHTML += "<br>" + persons[mem[i]][0];
                 }
+                old = document.getElementById("missiondescription").innerHTML + old + oldtext;
+                document.getElementById("missiondescription").innerHTML += "<br><button onclick='result()'>Show Result</button><br>" + old + oldtext;
                 console.log(mem);
-                document.getElementById("missiondescription").innerHTML = "You started the mission with: ";
+            }
+            function result() {
+                if (true) {
+                    document.getElementById("missiondescription").innerHTML = activemission[6] + "<br><br>" + old;
+                    old = document.getElementById("missiondescription").innerHTML = activemission[6] + "<br><br>" + old;
+                }
             }
         </script>
     </body>
