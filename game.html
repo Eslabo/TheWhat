@@ -35,8 +35,7 @@
             <i id="miscount" align="right"></i>
             <h3 id="missionheader" align="left"></h3>
 
-            <p id="missiondescription" align="left">We could write great text in here, like mission infos, stats and stuff. 
-                Plus we got optional space for meeeeemes!</p>
+            <p id="missiondescription" align="left"></p>
 
         </object>
 
@@ -67,6 +66,7 @@
             var oldtext = "";
             var old = "";
             var activemission = [];
+            var missionpoints = 0;
 
             var persons = [["Don Donut", "Pater", minimum(attributes(0), 17), minimum(attributes(0), 17), minimum(attributes(0), 17), minimum(attributes(0), 17)],
             [chooseName(), "right Hand", minimum(attributes(2), 15), minimum(attributes(2), 15), minimum(attributes(2), 15), minimum(attributes(2), 15)],
@@ -179,16 +179,29 @@
                 for (var i = 0; i < mem.length; i++) {
                     mem[i] = parseInt(mem[i]) - 1;
                     document.getElementById("missiondescription").innerHTML += "<br>" + persons[mem[i]][0];
+                    add(mem);
                 }
-                old = document.getElementById("missiondescription").innerHTML + old + oldtext;
+                old = document.getElementById("missiondescription").innerHTML + "<br>" + old + oldtext;
                 document.getElementById("missiondescription").innerHTML += "<br><button onclick='result()'>Show Result</button><br>" + old + oldtext;
                 console.log(mem);
             }
             function result() {
-                if (true) {
+                if (missionpoints <= 0) {
                     document.getElementById("missiondescription").innerHTML = activemission[6] + "<br><br>" + old;
                     old = document.getElementById("missiondescription").innerHTML = activemission[6] + "<br><br>" + old;
                 }
+            }
+            function add(mem) {
+                //Errechne zuerst nötige missionpoints der aktiven Mission (ohne Zugabe möglich)
+                //Dann werte die mitgenommenen Personen aus
+                //mache dann ein leichtes Zufallsergebnis durch mathrandom um zu bestimmen ob + oder -, und +/- up to 25
+                missionpoints = activemission[2] + activemission[3] + activemission[4] + activemission[5];
+                for (var i = 0; i < mem.length; i++) {
+                    for (var j = 2; j <= 5; j++) {
+                        missionpoints = missionpoints - persons[mem[i]][j];
+                    }
+                }
+                missionpoints = missionpoints + (-1) ^ (Math.floor(Math.random() * 10)) * (Math.floor(Math.random() * 10));
             }
         </script>
     </body>
