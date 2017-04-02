@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jannes">
+</head>
+
+<body>
+    <div id="nyan"><input type='text' id='num' value='1'><button onclick='start()'>GO!</button></div>
+    <a href="https://acagamics.de/" target="_blank">
+		<img id="schorsch" src="https://acagamics.de/wp-content/uploads/2017/02/cropped-logoc-180x180.png" alt="Acagamics figure"
+		 style="width:64px;height:64px" align="right">
+	</a>
+    <script>
+        function start() {
+            var num = parseInt(document.getElementById("num").value);
+            document.getElementById("nyan").innerHTML = "";
+            while (num > 0){
+                document.getElementById("nyan").innerHTML += "<iframe align = 'center' src='http://nyan.cat' scrolling= 'no' width= '300' height= '300' > </iframe>";
+                num--;
+            }
+        }
+    </script>
+</body>
+
+</html>
