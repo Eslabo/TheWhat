@@ -64,7 +64,7 @@
                 "You successfully ate it all!", "You kould not find success.."]
 
             var catchPeople=["Beware your Familia from Death","Your Familia is not big enough. You have to find new Members before the Enemy-Familia overtakes you.",20,5,20,10,
-            "You have find a few new friends!", "After your Underlings went out to find some new Members for your familia you never heard of any of them again..."]
+            "You have found a few new friends!", "After your Underlings went out to find some new Members for your familia you never heard of any of them again..."]
             
 
 
@@ -113,8 +113,7 @@
                 console.log(table)
             }
 
-            missionToText(catchPeople);
-            missionToText(scavengerHunt); //init first mission
+            nextMis(); //init first mission
             
 
             //tester:
@@ -226,13 +225,16 @@
             }
             function result() {
                 if (missionpoints <= 0) {
+                    //add awesome things you got from missions here
                     document.getElementById("missiondescription").innerHTML = activemission[6] + "<br><br>" + old;
                     old = document.getElementById("missiondescription").innerHTML = activemission[6] + "<br><br>" + old;
                 }
                 else{
+                    //add people who die here (reference to table cell and delete or mark red (e.g. background color)), might use if case for special missions
                     document.getElementById("missiondescription").innerHTML = activemission[7] + "<br><br>" + old;
                     old = document.getElementById("missiondescription").innerHTML = activemission[7] + "<br><br>" + old;
                 }
+                nextMis();
             }
             function add(mem) {
                 //Errechne zuerst nötige missionpoints der aktiven Mission (ohne Zugabe möglich)
@@ -245,6 +247,15 @@
                     }
                 }
                 missionpoints = missionpoints + (-1) ^ (Math.floor(Math.random() * 10)) * (Math.floor(Math.random() * 10));
+            }
+            function nextMis(){
+                //nach jeder Mission wird die darauf folgende geöffnet uns ausgeführt.
+                switch(missioncount){
+                    case 0: missionToText(scavengerHunt); break;
+                    case 1: missionToText(catchPeople); break;
+                    default:  document.getElementById("missiondescription").innerHTML += "No more missions found."; break;
+                }
+                missioncount++;
             }
         </script>
     </body>
