@@ -18,8 +18,9 @@
         <h3 align="center">Familia</h3>
         <table id="familia">
             <tr>
+                <th>ID</th>
                 <th>Name</th>
-                <th>Rang</th>
+                <th>Rank</th>
                 <th>Intelligence</th>
                 <th>Power</th>
                 <th>Charisma</th>
@@ -93,13 +94,17 @@
             [chooseName(), "Noob", attributes(17), attributes(17), attributes(17), attributes(17)]]
 
 
+
+
             var table = familia.rows;
 
 
             for (i = 0; i < persons.length; i++) {
-                document.getElementById("familia").innerHTML += "<tr><th>" + persons[i][0] + "</th><th>" + persons[i][1] + "</th><th>" + persons[i][2] + "</th><th>" + persons[i][3] + "</th><th>" + persons[i][4] + "</th><th>" + persons[i][5] + "</th></tr>";
+                document.getElementById("familia").innerHTML += "<tr><th>" +(i+1)+"</th><th>"+ persons[i][0] + "</th><th>" + persons[i][1] + "</th><th>" + persons[i][2] + "</th><th>" 
+                + persons[i][3] + "</th><th>" + persons[i][4] + "</th><th>" + persons[i][5] + "</th></tr>";
                 console.log(table)
             }
+
 
             missionToText(auftrag1); //init first mission
 
@@ -124,6 +129,13 @@
                 //^ comments in order for us to check if stuff was done (correctly)
             }
 
+
+            function create(number,rank){
+                switch(rank){
+                    case "Noob":
+                    persons[persons.length]=
+                }
+            }
 
             //errechnet zufällige attributeswerte (berechnet eine Obergrenze mit ein)
             function attributes(high) {
