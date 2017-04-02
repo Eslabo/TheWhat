@@ -253,7 +253,8 @@
                 switch(missioncount){
                     case 0: missionToText(scavengerHunt); break;
                     case 1: missionToText(catchPeople); break;
-                    default:  document.getElementById("missiondescription").innerHTML += "No more missions found."; break;
+                    case 2: document.getElementById("missiondescription").innerHTML = "<img src='http://2.bp.blogspot.com/_YpQxsYG0a34/TQ7dEJltJgI/AAAAAAAABuA/Pwk4xTtTneg/s1600/Potatoes.jpg' style='height: 500px;width: 500px;'>"
+                    default:  document.getElementById("missiondescription").innerHTML += "<br>No more missions found."; break;
                 }
                 missioncount++;
             }
