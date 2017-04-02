@@ -220,13 +220,17 @@
                     add(mem);
                 }
                 old = document.getElementById("missiondescription").innerHTML + "<br>" + old + oldtext;
-                document.getElementById("missiondescription").innerHTML += "<br><button onclick='result()'>Show Result</button><br>" + old + oldtext;
+                document.getElementById("missiondescription").innerHTML = "<br><button onclick='result()'>Show Result</button><br>" + old + oldtext;
                 console.log(mem);
             }
             function result() {
                 if (missionpoints <= 0) {
                     document.getElementById("missiondescription").innerHTML = activemission[6] + "<br><br>" + old;
                     old = document.getElementById("missiondescription").innerHTML = activemission[6] + "<br><br>" + old;
+                }
+                else{
+                    document.getElementById("missiondescription").innerHTML = activemission[7] + "<br><br>" + old;
+                    old = document.getElementById("missiondescription").innerHTML = activemission[7] + "<br><br>" + old;
                 }
             }
             function add(mem) {
